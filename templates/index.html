@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetal Health Analysis</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .test-container {
+        max-width: 460px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="file"],
+    input[type="submit"] {
+        margin-bottom: 10px;
+    }
+
+    input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box; /* Ensures padding and border are included in the width */
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-sizing: border-box; /* Ensures padding and border are included in the width */
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+   /* Add this CSS to your existing stylesheet */
+
+.test-container button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+
+    /* Font styles */
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.test-container button:hover {
+    background-color: #45a049;
+}
+
+
+
+</style>
+
+
+
+</head>
+<body>
+    <h1>Welcome to Fetal Health Analysis</h1>
+
+    <div class="test-container">
+        <h2>Abdominal-Circumference (AC)</h2>
+        <form method="POST" action="/ac" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*">
+            <br><br>
+            <input type="submit" value="Test">
+        </form>
+    </div>
+
+    <div class="test-container">
+        <h2>Biparietal-Diameter(BPD) and Head-Circumference(HC)</h2>
+        <form method="POST" action="/bpd" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*">
+            <br><br>
+            <input type="submit" value="Test">
+        </form>
+    </div>
+
+    <div class="test-container">
+    <h2>Femur-Length</h2>
+    <button value="VolusonE6" onclick="redirectToMachine(this.value)">Voluson E6</button>
+    <button value="VolusonS8" onclick="redirectToMachine(this.value)">Voluson S8</button>
+    <button value="VolusonS10" onclick="redirectToMachine(this.value)">Voluson S10</button>
+    <button value="Aloka" onclick="redirectToMachine(this.value)">Aloka</button>
+</div>
+
+
+<script>
+    function redirectToMachine(machine) {
+        window.location.href = `/Femur.html?machine=${machine.toLowerCase()}`;
+    }
+</script>
+
+
+
+</body>
+</html>

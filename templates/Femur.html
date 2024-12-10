@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .test-container {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="file"],
+        input[type="submit"] {
+            margin-bottom: 10px;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Femur.html -->
+
+<div class="test-container">
+    <h2>Femur Length - {{ machine }}</h2>
+    <form id="yourFormId" method="POST" action="" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <br><br>
+        <input type="submit" value="Test">
+    </form>
+</div>
+
+<script>
+    // Get the machine name from the query parameter in the URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var machine = urlParams.get('machine');
+
+    // Update the form action dynamically based on the selected machine
+    var form = document.getElementById("yourFormId");
+    if (form)
+    {
+        // Use a conditional to handle different machines
+        if (machine.toLowerCase() === 'volusons10')
+        {
+            form.action = `/volusonS10?machine=${machine}`;
+        }
+        else if (machine.toLowerCase() === 'volusonS10')
+         {
+            form.action = `/volusonS10?machine=test_${machine}`;
+         }
+        else if (machine.toLowerCase() === 'volusone6')
+        {
+            form.action = `/volusonE6?machine=${machine}`;
+        }
+        else if (machine.toLowerCase() === 'volusons8') {
+            form.action = `/volusonS8?machine=${machine}`;
+        }
+        else if (machine.toLowerCase() === 'aloka') {
+            form.action = `/aloka?machine=${machine}`;
+        }
+        else
+        {
+            console.error("Unsupported machine:", machine);
+        }
+    }
+    else
+    {
+        console.error("Form element not found.");
+    }
+</script>
+
+
+
+
+
+</body>
+</html>

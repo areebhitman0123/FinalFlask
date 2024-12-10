@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Femur Length Test Result</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .result-container {
+        max-width: 100%;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box; /* Ensures padding and border are included in the width */
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    p {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #555;
+    }
+
+    img {
+        display: block;
+        margin-top: 20px;
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+</head>
+<body>
+    <div class="result-container">
+        <h2>Femur Length Test Result - {{ machine }}</h2>
+        <p>Femur Length: {{ femur_length }} mm</p>
+        <img src="{{ image_path }}" alt="Test Image">
+    </div>
+</body>
+</html>

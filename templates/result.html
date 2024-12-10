@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetal Health Analysis Result</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .result-container {
+        max-width: 100%;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box; /* Ensures padding and border are included in the width */
+    }
+
+    .result-image {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+</head>
+<body>
+    <h1>Fetal Health Analysis Result</h1>
+
+    <div class="result-container">
+        <h2>Abdominal Circumference (AC) Measurement</h2>
+        <p>Major Axis: {{ major_axis }} mm</p>
+        <p>Minor Axis: {{ minor_axis }} mm</p>
+        <p>Estimated Length: {{ estimated_length }} mm</p>
+        <p>Length of Line: {{length }} mm</p>
+
+        {% if plot_image_path %}
+            <img src="{{ url_for('plot_image') }}" alt="AC Measurement" class="result-image">
+        {% endif %}
+    </div>
+</body>
+</html>
